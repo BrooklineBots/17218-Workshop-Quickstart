@@ -42,14 +42,14 @@ public class Drivetrain extends SubsystemBase {
       final Telemetry telemetry,
       final RobotContainer.gameMode gameMode,
       final PinpointLocalizer pinpoint) {
-    this.hwMap = hwMap;
-    this.telemetry = telemetry;
-    this.pinpoint = pinpoint;
+    this.hwMap = null; // FIXME
+    this.telemetry = null; // FIXME
+    this.pinpoint = null; // FIXME
 
     frontLeftMotor = new Motor(hwMap, Constants.DriveConstants.FRONT_LEFT_MOTOR_ID);
-    backLeftMotor = new Motor(hwMap, Constants.DriveConstants.BACK_LEFT_MOTOR_ID);
-    frontRightMotor = new Motor(hwMap, Constants.DriveConstants.FRONT_RIGHT_MOTOR_ID);
-    backRightMotor = new Motor(hwMap, Constants.DriveConstants.BACK_RIGHT_MOTOR_ID);
+    backLeftMotor = null; // FIXME
+    frontRightMotor = null; // FIXME
+    backRightMotor = null; // FIXME
 
     frontLeftMotor.setInverted(false);
     backLeftMotor.setInverted(false);
@@ -62,7 +62,7 @@ public class Drivetrain extends SubsystemBase {
     // Retrieve the IMU from the hardware map
     revIMU = new RevIMU(hwMap, Constants.DriveConstants.IMU_ID); // Constants.DriveConstants.IMU_ID
 
-    revIMU.init(); // FIXME: Orientation may need to be adjusted for your robot
+    revIMU.init();
 
     // Adjust the orientation parameters to match your robot
     final IMU.Parameters parameters =
@@ -83,8 +83,7 @@ public class Drivetrain extends SubsystemBase {
   }
 
   public void resetYaw() {
-    revIMU.reset();
-    setFieldHeadingOffset(0);
+    // FIXME: We need to reset the IMU and set the field heading offset to 0.
   }
 
   public double getBotHeading() {
@@ -104,24 +103,27 @@ public class Drivetrain extends SubsystemBase {
   }
 
   public void stopMotors() { // Stops all motors
-    drive.stop();
+
+    // FIXME: there's a few ways to do this.
+    //  Can you find a one line solution with no paramaters?
   }
 
   public void driveRobotCentric(final GamepadEx Controller) {
-    driveRobotCentric(-Controller.getLeftY(), Controller.getLeftX(), Controller.getRightX());
+    // FIXME: There are 3+ ways to do this!
+    //  Hint: -Controller.getLeftY(), Controller.getLeftX(), Controller.getRightX()
   }
 
   public void driveRobotCentric(final double forward, final double strafe, final double rotate) {
-    drive.driveRobotCentric(strafe, forward, rotate);
+    // FIXME: There are 2+ ways to do this!
   }
 
   public void driveFieldCentric(final GamepadEx Controller) {
-    driveFieldCentric(
-        -Controller.getLeftY(), -Controller.getLeftX(), -(Controller.getRightX() * 0.5));
+    // FIXME: Same as above, but we use the IMU now!
+    //  -Controller.getLeftY(), -Controller.getLeftX(), -(Controller.getRightX() * 0.5)
   }
 
   public void driveFieldCentric(final double forward, final double strafe, final double rotate) {
-
+    // FIXME: Same as above, but we use the IMU now!
     drive.driveFieldCentric(strafe, forward, rotate, revIMU.getRotation2d().getDegrees(), false);
   }
 
