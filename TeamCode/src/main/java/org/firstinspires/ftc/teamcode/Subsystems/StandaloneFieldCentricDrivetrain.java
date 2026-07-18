@@ -33,10 +33,11 @@ public class StandaloneFieldCentricDrivetrain extends SubsystemBase {
     imu = hwMap.get(IMU.class, IMU_ID);
 
     // Adjust the orientation parameters to match your robot
-    IMU.Parameters parameters = new IMU.Parameters(
-        new RevHubOrientationOnRobot(
-            RevHubOrientationOnRobot.LogoFacingDirection.UP,
-            RevHubOrientationOnRobot.UsbFacingDirection.LEFT));
+    IMU.Parameters parameters =
+        new IMU.Parameters(
+            new RevHubOrientationOnRobot(
+                RevHubOrientationOnRobot.LogoFacingDirection.UP,
+                RevHubOrientationOnRobot.UsbFacingDirection.LEFT));
     imu.initialize(parameters);
 
     // Reverse left motors so positive power drives forward.
@@ -58,10 +59,7 @@ public class StandaloneFieldCentricDrivetrain extends SubsystemBase {
     backRightMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
   }
 
-  /**
-   * Resets the IMU's yaw angle to 0. Useful for realigning the field-centric
-   * drive.
-   */
+  /** Resets the IMU's yaw angle to 0. Useful for realigning the field-centric drive. */
   public void resetYaw() {
     imu.resetYaw();
   }
@@ -70,8 +68,8 @@ public class StandaloneFieldCentricDrivetrain extends SubsystemBase {
    * Drives the robot using field-centric coordinates.
    *
    * @param forward positive is forward (away from the driver)
-   * @param strafe  positive is right
-   * @param rotate  positive is clockwise/right
+   * @param strafe positive is right
+   * @param rotate positive is clockwise/right
    */
   public void driveFieldCentric(double forward, double strafe, double rotate) {
     // Get the robot's heading in radians

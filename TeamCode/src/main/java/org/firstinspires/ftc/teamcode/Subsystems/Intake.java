@@ -41,16 +41,12 @@ public class Intake extends SubsystemBase {
     }
   }
 
-  /**
-   * Turns the intake on in reverse to eject elements.
-   */
+  /** Turns the intake on in reverse to eject elements. */
   public void outtake() {
     intake(-1.0); // Adjust power as needed
   }
 
-  /**
-   * Stops the intake motor.
-   */
+  /** Stops the intake motor. */
   public void stop() {
     setPower(0.0); // Or intake(0.0);
   }
