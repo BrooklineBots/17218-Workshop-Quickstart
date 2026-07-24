@@ -25,9 +25,9 @@ public class DriveCommand extends CommandBase {
     if (!Utils.isWithinTolerance(0, gamepad.getLeftY(), tolerance)
         || !Utils.isWithinTolerance(0, gamepad.getLeftX(), tolerance)
         || !Utils.isWithinTolerance(0, gamepad.getRightX(), tolerance)) {
-      // FIXME: What do we do here?
+      drive.driveFieldCentric(gamepad);
     } else {
-      // FIXME: What do we do here?
+      drive.stopMotors();
     }
   }
 
@@ -40,8 +40,6 @@ public class DriveCommand extends CommandBase {
 
   @Override
   public boolean isFinished() {
-    return true; // Placeholder
-
-    // FIXME: What should we do here?
+    return false;
   }
 }
