@@ -8,11 +8,13 @@ import org.firstinspires.ftc.robotcore.external.Telemetry;
 import org.firstinspires.ftc.robotcore.external.navigation.Pose3D;
 import org.firstinspires.ftc.teamcode.Constants;
 
-public class Limelight extends SubsystemBase {
+public class LL extends SubsystemBase {
   private final Limelight3A limelight;
   private final Telemetry telemetry;
 
-  public Limelight(HardwareMap hardwareMap, Telemetry telemetry) {
+  private LLResult latestResult = null;
+
+  public LL(HardwareMap hardwareMap, Telemetry telemetry) {
     this.telemetry = telemetry;
     limelight = hardwareMap.get(Limelight3A.class, Constants.LimelightConstants.LIMELIGHT_NAME);
 
@@ -35,7 +37,10 @@ public class Limelight extends SubsystemBase {
   }
 
   public LLResult getLatestResult() {
-    return limelight.getLatestResult();
+    if (hasTarget()) {
+      latestResult = limelight.getLatestResult();
+    }
+    return latestResult;
   }
 
   public boolean hasTarget() {

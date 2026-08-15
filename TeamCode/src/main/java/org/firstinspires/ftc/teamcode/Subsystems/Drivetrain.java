@@ -133,7 +133,7 @@ public class Drivetrain extends SubsystemBase {
   }
 
   // Update PedroPathing Pose Only
-  public void updatePoseFromLimelight(Limelight limelight) {
+  public void updatePoseFromLimelight(LL limelight) {
     Pose3D visionPose = limelight.getBotPose();
     if (visionPose != null) {
       // Limelight is in meters, PedroPathing (is dumb) and uses inches.

@@ -23,7 +23,7 @@ public class Constants {
   public static class LimelightConstants {
     public static final String LIMELIGHT_NAME = "limelight";
 
-    public static final int APRILTAG_PIPELINE = 0;
-    public static final int OBJECT_DETECTION_PIPELINE = 1;
+    public static final int APRILTAG_PIPELINE = 4;
+    public static final int OBJECT_DETECTION_PIPELINE = 5;
   }
 }

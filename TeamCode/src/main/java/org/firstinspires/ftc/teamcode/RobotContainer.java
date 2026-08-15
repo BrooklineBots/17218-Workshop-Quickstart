@@ -13,14 +13,14 @@ import org.firstinspires.ftc.teamcode.Commands.AutoCommands.AutoChooser;
 import org.firstinspires.ftc.teamcode.Commands.DriveCommand;
 import org.firstinspires.ftc.teamcode.Commands.LimelightAlignCommand;
 import org.firstinspires.ftc.teamcode.Subsystems.Drivetrain;
-import org.firstinspires.ftc.teamcode.Subsystems.Limelight;
+import org.firstinspires.ftc.teamcode.Subsystems.LL;
 
 public class RobotContainer {
   // Subsystems
   private Drivetrain drive;
   private Drivetrain autoDrive;
   private PinpointLocalizer pinpoint;
-  private Limelight limelight;
+  private LL limelight;
 
   // Dependencies
   private final HardwareMap hardwareMap;
@@ -60,7 +60,7 @@ public class RobotContainer {
   public void initializeSubsystems() {
     drive = new Drivetrain(hardwareMap, telemetry, currentGameMode, pinpoint);
     autoDrive = new Drivetrain(hardwareMap, telemetry, currentGameMode, pinpoint);
-    limelight = new Limelight(hardwareMap, telemetry);
+    limelight = new LL(hardwareMap, telemetry);
     // Register subsystems with scheduler
     CommandScheduler.getInstance().registerSubsystem(drive, autoDrive, limelight);
   }
