@@ -82,7 +82,8 @@ dependencies {
     implementation 'com.github.Mallen220:PedroPathingPlus:1.1.1'
 
     // Panels Dashboard
-    implementation "com.bylazar:fullpanels:1.0.5"
+    implementation "com.bylazar:fullpanels:1.0.12"
+    implementation "com.bylazar:limelightproxy:1.0.4"
 
     //Sloth
     implementation("dev.frozenmilk.sinister:Sloth:0.2.4")
